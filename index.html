@@ -307,8 +307,7 @@ function load(){
           Nhaplieu:r[col.Nhaplieu]
         };
 	obj._search = Object.values(obj)
-   	 .join(' ')
-	    .toLowerCase();
+   	 .map(v => v ?? '').join(' ').toLowerCase();
 	origin.push(obj);
       }else{
         const obj = {
@@ -326,8 +325,7 @@ function load(){
           Nhaplieu:r[col.Nhaplieu]
         };
 	obj._search = Object.values(obj)
-   	 .join(' ')
-	    .toLowerCase();
+   	 .map(v => v ?? '').join(' ').toLowerCase();
 	origin.push(obj);
       }
     }
