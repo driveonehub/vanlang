@@ -85,7 +85,6 @@ table {
     border-collapse: collapse;
     width: 100%;
     border: none; /* Bỏ viền ngoài của table để dùng viền của container */
-    table-layout: fixed; /* Giúp trình duyệt tuân thủ tuyệt đối chiều rộng cột */
 }
 
 /* Tinh chỉnh lại border của các ô bên trong bảng cho liền mạch */
@@ -110,12 +109,6 @@ tbody tr:last-child td:first-child {
 tfoot tr:last-child th:last-child,
 tbody tr:last-child td:last-child {
     border-bottom-right-radius: 11px;
-}
-
-/* Đảm bảo ô cột Trạng thái luôn giữ được độ rộng tối thiểu mong muốn */
-table th:nth-child(5),
-table td:nth-child(5) {
-    min-width: 20%;
 }
 
 /* ===== DASHBOARD TABS ===== */
