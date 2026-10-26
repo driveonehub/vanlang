@@ -70,6 +70,53 @@ tfoot{display:none;} /* Ẩn khi chưa load dữ liệu, hiện lại trong rend
 .controls{margin-bottom:10px;display:flex;gap:10px;align-items:center}
 a{text-decoration:none}
 
+/* Khung bọc ngoài bảng để bo tròn 4 góc hoàn hảo */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Cho phép cuộn ngang trên điện thoại nếu bảng quá dài */
+    border: 1px solid #999;
+    border-radius: 12px; /* Độ bo tròn 4 góc khung bảng */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+/* Đảm bảo bảng bên trong lấp đầy và khớp viền */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: none; /* Bỏ viền ngoài của table để dùng viền của container */
+}
+
+/* Tinh chỉnh lại border của các ô bên trong bảng cho liền mạch */
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+/* Bo góc cho hàng tiêu chuẩn phía trên cùng (Header) khớp với khung */
+thead tr:first-child th:first-child {
+    border-top-left-radius: 11px;
+}
+thead tr:first-child th:last-child {
+    border-top-right-radius: 11px;
+}
+
+/* Bo góc cho hàng cuối cùng (Footer hoặc dòng cuối tbody) khớp với khung */
+tfoot tr:last-child th:first-child,
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 11px;
+}
+tfoot tr:last-child th:last-child,
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 11px;
+}
+
+/* Đảm bảo ô cột Trạng thái luôn giữ được độ rộng tối thiểu mong muốn */
+table th:nth-child(5),
+table td:nth-child(5) {
+    min-width: 90%;
+}
+
 /* ===== DASHBOARD TABS ===== */
 .tabs{
   display:flex;
@@ -124,6 +171,7 @@ a{text-decoration:none}
 
 <h2 id="title">Đang load dữ liệu...</h2>
 
+<div class="table-container">
 <table>
 <thead id="thead"></thead>
 <tbody id="tb">
@@ -137,6 +185,7 @@ a{text-decoration:none}
   </tr>
 </tfoot>
 </table>
+</div>
 
 <script>
 /* =======================
